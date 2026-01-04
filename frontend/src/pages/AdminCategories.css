@@ -1,0 +1,495 @@
+/* Admin Categories - Lucky Toys Billing System */
+/* Black & White Minimalistic Theme */
+
+.admin-categories-container {
+  padding: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #fafafa;
+  min-height: 100vh;
+}
+
+/* ============================================
+   HEADER SECTION
+   ============================================ */
+.categories-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #000;
+}
+
+.categories-header h2 {
+  margin: 0;
+  color: #000;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* ============================================
+   FORM SECTION
+   ============================================ */
+.category-form {
+  background: #fff;
+  border: 3px solid #000;
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.category-form h3 {
+  margin: 0 0 20px 0;
+  color: #000;
+  font-size: 18px;
+  font-weight: 800;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.category-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-group label {
+  color: #000;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px 12px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  background: #fafafa;
+  color: #000;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #000;
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #999;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid #e8e8e8;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn-primary {
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  border: 2px solid #000;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #333;
+}
+
+.btn-primary:disabled {
+  background: #ccc;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  padding: 10px 20px;
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-secondary:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* ============================================
+   TABLE SECTION
+   ============================================ */
+.categories-table {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid #000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.categories-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.categories-table th {
+  background: #000;
+  padding: 14px 20px;
+  text-align: left;
+  font-weight: 700;
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.categories-table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid #e8e8e8;
+  color: #333;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.categories-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.categories-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Category Name Column */
+.categories-table td:first-child {
+  font-weight: 700;
+  color: #000;
+}
+
+/* Zebra Striping */
+.categories-table tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.categories-table tbody tr:nth-child(even):hover {
+  background: #f0f0f0;
+}
+
+/* Empty State */
+.categories-table td[colspan] {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* ============================================
+   ACTION BUTTONS
+   ============================================ */
+.btn-edit {
+  padding: 8px 16px;
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  margin-right: 8px;
+}
+
+.btn-edit:hover {
+  background: #000;
+  color: #fff;
+}
+
+.btn-danger,
+.btn-delete {
+  padding: 8px 16px;
+  background: #fff;
+  color: #c53030;
+  border: 2px solid #c53030;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.btn-danger:hover,
+.btn-delete:hover {
+  background: #c53030;
+  color: #fff;
+}
+
+.btn-danger:hover,
+.btn-delete:hover {
+  background: #c53030;
+  color: #fff;
+}
+
+/* ============================================
+   MESSAGES
+   ============================================ */
+.error-message {
+  background: #000;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.error-message::before {
+  content: '⚠';
+  font-size: 16px;
+}
+
+.success-message {
+  background: #2e7d32;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.success-message::before {
+  content: '✓';
+  font-size: 16px;
+}
+
+/* ============================================
+   LOADING & EMPTY STATES
+   ============================================ */
+.loading,
+.no-data {
+  text-align: center;
+  padding: 50px 20px;
+  color: #666;
+  font-size: 14px;
+}
+
+.loading::before {
+  content: '';
+  display: block;
+  width: 36px;
+  height: 36px;
+  border: 3px solid #e8e8e8;
+  border-top-color: #000;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   CATEGORIES GRID (Alternative View)
+   ============================================ */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.category-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #000;
+  transition: all 0.2s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.category-card h3 {
+  margin: 0 0 8px 0;
+  color: #000;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.category-card p {
+  margin: 0 0 12px 0;
+  color: #666;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.category-card .product-count {
+  color: #888;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.category-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* ============================================
+   MODAL STYLES
+   ============================================ */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 450px;
+  max-height: 85vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 2px solid #000;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 2px solid #000;
+  background: #000;
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.2);
+}
+
+.modal-body {
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+  .admin-categories-container {
+    padding: 20px;
+  }
+  
+  .categories-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .categories-header h2 {
+    font-size: 24px;
+  }
+  
+  .categories-table {
+    overflow-x: auto;
+  }
+  
+  .categories-table table {
+    min-width: 500px;
+  }
+  
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+}

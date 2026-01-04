@@ -1,0 +1,184 @@
+/* Sidebar - Lucky Toys Billing System */
+/* Black & White Minimalistic Theme */
+
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background: #000;
+  position: fixed;
+  left: 0;
+  top: 0;
+  color: #888;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.sidebar-header {
+  padding: 24px 20px;
+  border-bottom: 2px solid #222;
+  background: linear-gradient(180deg, #111 0%, #000 100%);
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.sidebar-header .user-info {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+  padding: 6px 10px;
+  background: #1a1a1a;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+.sidebar-nav {
+  flex: 1;
+  padding: 16px 0;
+  overflow-y: auto;
+}
+
+.sidebar-nav h3 {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #555;
+  padding: 20px 20px 10px;
+  margin: 0;
+  font-weight: 700;
+  position: relative;
+}
+
+.sidebar-nav h3::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  bottom: 6px;
+  width: 30px;
+  height: 2px;
+  background: #333;
+}
+
+/* ============================================
+   NAV ITEMS
+   ============================================ */
+.nav-item {
+  display: flex;
+  align-items: center;
+  width: calc(100% - 16px);
+  margin: 4px 8px;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  color: #888;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  position: relative;
+}
+
+.nav-item:hover {
+  background: #1a1a1a;
+  color: #fff;
+  transform: translateX(4px);
+}
+
+.nav-item:hover::before {
+  content: '→';
+  position: absolute;
+  right: 12px;
+  opacity: 0.5;
+}
+
+.nav-item.active {
+  background: #fff;
+  color: #000;
+  font-weight: 700;
+}
+
+.nav-item.active:hover {
+  transform: none;
+}
+
+.nav-item.active::before {
+  display: none;
+}
+
+/* ============================================
+   LOGOUT BUTTON
+   ============================================ */
+.logout-btn {
+  margin: 16px;
+  padding: 14px 20px;
+  background: #1a1a1a;
+  border: 2px solid #333;
+  border-radius: 8px;
+  color: #888;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.logout-btn:hover {
+  background: #c53030;
+  border-color: #c53030;
+  color: #fff;
+  transform: scale(1.02);
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+.sidebar-nav::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}

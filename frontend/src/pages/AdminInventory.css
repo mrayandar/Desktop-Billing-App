@@ -1,0 +1,558 @@
+/* Admin Inventory - Lucky Toys Billing System */
+/* Black & White Minimalistic Theme */
+
+.admin-inventory-container {
+  padding: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #fafafa;
+  min-height: 100vh;
+}
+
+.admin-inventory-container > h2 {
+  margin: 0 0 24px 0;
+  color: #000;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #000;
+}
+
+/* ============================================
+   TABS SECTION
+   ============================================ */
+.inventory-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 24px;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 8px;
+  overflow: hidden;
+  width: fit-content;
+}
+
+.inventory-tabs .tab {
+  padding: 12px 24px;
+  background: #fff;
+  color: #000;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-right: 2px solid #000;
+}
+
+.inventory-tabs .tab:last-child {
+  border-right: none;
+}
+
+.inventory-tabs .tab:hover {
+  background: #f0f0f0;
+}
+
+.inventory-tabs .tab.active {
+  background: #000;
+  color: #fff;
+}
+
+/* ============================================
+   TABLE SECTION
+   ============================================ */
+.inventory-table {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid #000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.inventory-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.inventory-table th {
+  background: #000;
+  padding: 14px 20px;
+  text-align: left;
+  font-weight: 700;
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.inventory-table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid #e8e8e8;
+  color: #333;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.inventory-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.inventory-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Product Name Column */
+.inventory-table td:first-child {
+  font-weight: 700;
+  color: #000;
+}
+
+/* Stock Column */
+.inventory-table td:nth-child(3) {
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* Zebra Striping */
+.inventory-table tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.inventory-table tbody tr:nth-child(even):hover {
+  background: #f0f0f0;
+}
+
+/* Empty State */
+.inventory-table td[colspan] {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* ============================================
+   STATUS BADGES
+   ============================================ */
+.status {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status.ok {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status.low {
+  background: #ffebee;
+  color: #c53030;
+}
+
+/* ============================================
+   STOCK INPUT
+   ============================================ */
+.inventory-table input[type="number"] {
+  width: 80px;
+  padding: 8px 10px;
+  border: 2px solid #000;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  font-family: inherit;
+  background: #fff;
+}
+
+.inventory-table input[type="number"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn-edit {
+  padding: 8px 16px;
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.btn-edit:hover {
+  background: #000;
+  color: #fff;
+}
+
+.btn-primary {
+  padding: 8px 16px;
+  background: #000;
+  color: #fff;
+  border: 2px solid #000;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #333;
+}
+
+.btn-primary:disabled {
+  background: #ccc;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  padding: 8px 16px;
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-left: 6px;
+}
+
+.btn-secondary:hover {
+  background: #000;
+  color: #fff;
+}
+
+.btn-success {
+  padding: 8px 16px;
+  background: #2e7d32;
+  color: #fff;
+  border: 2px solid #2e7d32;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-success:hover {
+  background: #1b5e20;
+  border-color: #1b5e20;
+}
+
+.btn-update {
+  padding: 8px 16px;
+  background: #000;
+  color: #fff;
+  border: 2px solid #000;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-update:hover:not(:disabled) {
+  background: #333;
+}
+
+.btn-update:disabled {
+  background: #ccc;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* ============================================
+   MESSAGES
+   ============================================ */
+.error-message {
+  background: #000;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.error-message::before {
+  content: '⚠';
+  font-size: 16px;
+}
+
+.success-message {
+  background: #2e7d32;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.success-message::before {
+  content: '✓';
+  font-size: 16px;
+}
+
+/* ============================================
+   LOADING & EMPTY STATES
+   ============================================ */
+.loading,
+.no-data {
+  text-align: center;
+  padding: 50px 20px;
+  color: #666;
+  font-size: 14px;
+}
+
+.loading::before {
+  content: '';
+  display: block;
+  width: 36px;
+  height: 36px;
+  border: 3px solid #e8e8e8;
+  border-top-color: #000;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   TOOLBAR
+   ============================================ */
+.inventory-toolbar {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.search-input {
+  padding: 10px 14px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  background: #fff;
+  min-width: 220px;
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #000;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.filter-select {
+  padding: 10px 14px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #000;
+}
+
+/* ============================================
+   FORM STYLES
+   ============================================ */
+.inventory-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-group label {
+  color: #000;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px 12px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  background: #fafafa;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #000;
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid #e8e8e8;
+}
+
+/* ============================================
+   MODAL STYLES
+   ============================================ */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 450px;
+  max-height: 85vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 2px solid #000;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 2px solid #000;
+  background: #000;
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.2);
+}
+
+.modal-body {
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+  .admin-inventory-container {
+    padding: 20px;
+  }
+  
+  .admin-inventory-container > h2 {
+    font-size: 24px;
+  }
+  
+  .inventory-tabs {
+    width: 100%;
+  }
+  
+  .inventory-tabs .tab {
+    flex: 1;
+    text-align: center;
+    padding: 12px 16px;
+    font-size: 12px;
+  }
+  
+  .inventory-table {
+    overflow-x: auto;
+  }
+  
+  .inventory-table table {
+    min-width: 600px;
+  }
+}

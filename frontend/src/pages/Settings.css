@@ -1,0 +1,465 @@
+/* Settings - Lucky Toys Billing System */
+/* Black & White Minimalistic Theme */
+
+.settings-container {
+  padding: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #fafafa;
+  min-height: 100vh;
+}
+
+/* ============================================
+   HEADER SECTION
+   ============================================ */
+.settings-header {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #000;
+}
+
+.settings-header h1 {
+  margin: 0 0 8px 0;
+  color: #000;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.settings-subtitle {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+/* ============================================
+   TABS
+   ============================================ */
+.settings-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 24px;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.settings-tabs button {
+  flex: 1;
+  padding: 14px 20px;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-right: 2px solid #000;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.settings-tabs button:last-child {
+  border-right: none;
+}
+
+.settings-tabs button:hover {
+  background: #f0f0f0;
+}
+
+.settings-tabs button.active {
+  background: #000;
+  color: #fff;
+}
+
+/* ============================================
+   SETTINGS CONTENT
+   ============================================ */
+.settings-content {
+  margin-top: 24px;
+}
+
+/* ============================================
+   SETTINGS CARD
+   ============================================ */
+.settings-card {
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding: 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.settings-card.full-width {
+  width: 100%;
+}
+
+.settings-card h2 {
+  margin: 0 0 8px 0;
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.card-description {
+  margin: 0 0 24px 0;
+  color: #666;
+  font-size: 14px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+/* ============================================
+   SETTINGS GRID (Non-admin view)
+   ============================================ */
+.settings-grid {
+  display: grid;
+  gap: 20px;
+}
+
+/* ============================================
+   FORM GRID
+   ============================================ */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* ============================================
+   SETTING ITEM
+   ============================================ */
+.setting-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.setting-item.full-width {
+  grid-column: 1 / -1;
+}
+
+.setting-item label {
+  color: #000;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.setting-item input,
+.setting-item select,
+.setting-item textarea {
+  padding: 12px 14px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  background: #fafafa;
+  color: #000;
+}
+
+.setting-item input:focus,
+.setting-item select:focus,
+.setting-item textarea:focus {
+  outline: none;
+  border-color: #000;
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.setting-item input:disabled {
+  background: #f0f0f0;
+  cursor: not-allowed;
+  color: #666;
+  border-color: #ddd;
+}
+
+.setting-item textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.setting-item small {
+  color: #888;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+/* ============================================
+   SETTINGS ACTIONS
+   ============================================ */
+.settings-actions {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 2px solid #e8e8e8;
+}
+
+/* ============================================
+   SYSTEM INFO
+   ============================================ */
+.system-info {
+  background: #f5f5f5;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 24px;
+  border-left: 4px solid #000;
+}
+
+.system-info h4 {
+  margin: 0 0 16px 0;
+  color: #000;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-label {
+  color: #888;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  color: #000;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* ============================================
+   BACKUP SECTION
+   ============================================ */
+.backup-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.backup-card {
+  background: #f8f8f8;
+  border-radius: 8px;
+  padding: 24px;
+  border: 2px solid #e0e0e0;
+  transition: all 0.2s ease;
+}
+
+.backup-card:hover {
+  border-color: #000;
+}
+
+.backup-card h3 {
+  margin: 0 0 12px 0;
+  color: #000;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.backup-card p {
+  margin: 0 0 20px 0;
+  color: #666;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.backup-info {
+  background: #000;
+  color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 24px;
+}
+
+.backup-info h4 {
+  margin: 0 0 14px 0;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.backup-info ul {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.backup-info li {
+  margin-bottom: 4px;
+}
+
+/* ============================================
+   FILE UPLOAD BUTTON
+   ============================================ */
+.file-upload-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.file-upload-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+  padding: 12px 24px;
+  border: 2px solid #000;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  background: #000;
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #333;
+}
+
+.btn-primary:disabled {
+  background: #ccc;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* ============================================
+   MESSAGES
+   ============================================ */
+.error-message {
+  background: #000;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.error-message::before {
+  content: '⚠';
+  font-size: 16px;
+}
+
+.success-alert {
+  background: #2e7d32;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.success-alert::before {
+  content: '✓';
+  font-size: 16px;
+}
+
+/* ============================================
+   LOADING
+   ============================================ */
+.loading {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+  font-size: 16px;
+}
+
+.loading::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e8e8e8;
+  border-top-color: #000;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+  .settings-container {
+    padding: 20px;
+  }
+  
+  .settings-header h1 {
+    font-size: 24px;
+  }
+  
+  .settings-tabs {
+    flex-direction: column;
+  }
+  
+  .settings-tabs button {
+    border-right: none;
+    border-bottom: 2px solid #000;
+  }
+  
+  .settings-tabs button:last-child {
+    border-bottom: none;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .backup-section {
+    grid-template-columns: 1fr;
+  }
+}

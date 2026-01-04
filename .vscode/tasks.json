@@ -1,0 +1,135 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Full Dev Stack",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "dev"],
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^.*$",
+          "file": 1,
+          "location": 2,
+          "message": 3
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^.*",
+          "endsPattern": ".*Compiled|listening on|running on"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "group": "dev"
+      }
+    },
+    {
+      "label": "Start Backend Server",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "backend"],
+      "cwd": "${workspaceFolder}/backend",
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^.*$",
+          "message": 1
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^.*",
+          "endsPattern": ".*listening|running"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "group": "dev"
+      }
+    },
+    {
+      "label": "Start Frontend Dev Server",
+      "type": "shell",
+      "command": "npm",
+      "args": ["start"],
+      "cwd": "${workspaceFolder}/frontend",
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^.*$",
+          "message": 1
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^.*",
+          "endsPattern": ".*Compiled|on|ready"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "group": "dev"
+      }
+    },
+    {
+      "label": "Run Electron App",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "electron-dev"],
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^.*$",
+          "message": 1
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^.*",
+          "endsPattern": ".*listening|running"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "group": "dev"
+      }
+    },
+    {
+      "label": "Build for Production",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "electron-build"],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Build Frontend",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "build"],
+      "cwd": "${workspaceFolder}/frontend",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Install All Dependencies",
+      "type": "shell",
+      "command": "npm",
+      "args": ["install"],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    }
+  ]
+}

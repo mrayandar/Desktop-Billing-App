@@ -1,0 +1,21 @@
+/* Main App Layout - Minimalistic */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f8f8;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 240px;
+  min-height: 100vh;
+  background-color: #f8f8f8;
+  overflow-x: hidden;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+  }
+}

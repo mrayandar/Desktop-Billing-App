@@ -1,0 +1,184 @@
+/* Login Page - Lucky Toys */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0a0a0a;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background pattern */
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(255,255,255,0.02) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255,255,255,0.02) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.login-box {
+  background: #fff;
+  padding: 48px 44px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Header Section */
+.login-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.login-header .logo {
+  font-size: 48px;
+  margin-bottom: 16px;
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.login-header h1 {
+  margin: 0;
+  color: #000;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.login-header .tagline {
+  margin: 6px 0 0 0;
+  color: #888;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Form */
+.login-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-box .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.login-box .form-group label {
+  color: #333;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+
+.login-box .form-group input {
+  padding: 14px 16px;
+  border: 2px solid #e8e8e8;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  background: #fafafa;
+}
+
+.login-box .form-group input:focus {
+  outline: none;
+  border-color: #000;
+  background: #fff;
+}
+
+.login-box .form-group input::placeholder {
+  color: #aaa;
+}
+
+/* Submit Button */
+.login-box button[type="submit"] {
+  padding: 14px 24px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  margin-top: 8px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.login-box button[type="submit"]:hover:not(:disabled) {
+  background: #222;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.login-box button[type="submit"]:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.login-box button[type="submit"]:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Error Message */
+.login-box .error-message {
+  background-color: #000;
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Footer */
+.login-footer {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+
+.login-footer p {
+  margin: 0;
+  color: #aaa;
+  font-size: 11px;
+  letter-spacing: 0.3px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-box {
+    padding: 36px 28px;
+  }
+  
+  .login-header h1 {
+    font-size: 24px;
+  }
+  
+  .login-header .logo {
+    font-size: 40px;
+  }
+}
