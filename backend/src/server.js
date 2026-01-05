@@ -8,12 +8,21 @@ const { v4: uuidv4 } = require('uuid');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// Determine database path (support Electron packaged app)
+const dataDir = process.env.DATA_DIR || path.join(__dirname, '../data');
+const dbPath = path.join(dataDir, 'toyshop.db');
+
 // Middleware
 app.use(cors());
 app.use(express.json());
 
+// Health check endpoint for Electron
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'ok' });
+});
+
 // Initialize database
-const db = new Database(path.join(__dirname, '../data/toyshop.db'));
+const db = new Database(dbPath);
 
 // Initialize default data
 async function initializeDefaultData() {

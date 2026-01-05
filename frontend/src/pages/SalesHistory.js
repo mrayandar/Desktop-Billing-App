@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { salesService } from '../services/api';
+import Receipt from '../components/Receipt';
 import './SalesHistory.css';
 
 function SalesHistory() {
@@ -12,6 +13,7 @@ function SalesHistory() {
   const [error, setError] = useState(null);
   const [selectedSale, setSelectedSale] = useState(null);
   const [saleDetails, setSaleDetails] = useState(null);
+  const [printData, setPrintData] = useState(null);
 
   useEffect(() => {
     loadSales();
@@ -67,6 +69,30 @@ function SalesHistory() {
       setSelectedSale(saleId);
     } catch (err) {
       console.error('Failed to load sale details:', err);
+    }
+  };
+
+  const handlePrintReceipt = async (saleId) => {
+    try {
+      const response = await salesService.getSaleDetails(saleId);
+      const data = response.data;
+      setPrintData({
+        sale: data.sale,
+        items: data.items
+      });
+      
+      // Wait for receipt to render, then print
+      setTimeout(() => {
+        if (window.electron && window.electron.print) {
+          window.electron.print();
+        } else {
+          window.print();
+        }
+        // Clear print data after printing
+        setTimeout(() => setPrintData(null), 1000);
+      }, 500);
+    } catch (err) {
+      console.error('Failed to print receipt:', err);
     }
   };
 
@@ -172,12 +198,18 @@ function SalesHistory() {
                       {sale.payment_method?.toUpperCase() || 'CASH'}
                     </span>
                   </td>
-                  <td>
+                  <td className="actions-cell">
                     <button 
                       className="btn-view"
                       onClick={() => loadSaleDetails(sale.id)}
                     >
-                      View Details
+                      View
+                    </button>
+                    <button 
+                      className="btn-print"
+                      onClick={() => handlePrintReceipt(sale.id)}
+                    >
+                      🖨️ Print
                     </button>
                   </td>
                 </tr>
@@ -193,7 +225,15 @@ function SalesHistory() {
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h2>Bill Details - {saleDetails.sale?.bill_number}</h2>
-              <button className="close-btn" onClick={() => setSelectedSale(null)}>×</button>
+              <div className="modal-actions">
+                <button 
+                  className="btn-print-modal"
+                  onClick={() => handlePrintReceipt(selectedSale)}
+                >
+                  🖨️ Print Receipt
+                </button>
+                <button className="close-btn" onClick={() => setSelectedSale(null)}>×</button>
+              </div>
             </div>
             <div className="modal-body">
               <div className="sale-info">
@@ -240,6 +280,15 @@ function SalesHistory() {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Receipt for printing */}
+      {printData && (
+        <Receipt 
+          sale={printData.sale} 
+          items={printData.items} 
+          user={user}
+        />
       )}
     </div>
   );

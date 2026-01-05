@@ -220,7 +220,12 @@ function Billing() {
       loadProducts();
 
       setTimeout(() => {
-        window.print();
+        // Use Electron print if available, otherwise fallback to window.print
+        if (window.electron && window.electron.print) {
+          window.electron.print();
+        } else {
+          window.print();
+        }
       }, 500);
     } catch (err) {
       setError(err.response?.data?.error || 'Failed to create sale');

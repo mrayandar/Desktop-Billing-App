@@ -12,7 +12,7 @@
     "build": "cd frontend && npm run build",
     "electron": "electron .",
     "electron-dev": "concurrently \"npm run backend\" \"electron .\"",
-    "electron-build": "cd frontend && npm run build && electron-builder"
+    "electron-build": "npm run build && electron-builder --win"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -27,14 +27,36 @@
     "react-scripts": "5.0.1"
   },
   "build": {
-    "appId": "com.toyshop.billing",
+    "appId": "com.luckytoys.billing",
+    "productName": "Lucky Toys Billing",
+    "extends": null,
+    "asar": false,
     "files": [
-      "build/**/*",
+      "frontend/build/**/*",
       "backend/**/*",
-      "main.js"
+      "!backend/data/*.db",
+      "main.js",
+      "preload.js"
+    ],
+    "extraResources": [
+      {
+        "from": "backend/node_modules",
+        "to": "backend/node_modules"
+      }
     ],
     "directories": {
-      "buildResources": "public"
+      "output": "dist"
+    },
+    "win": {
+      "target": ["nsis"],
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Lucky Toys Billing"
     }
   },
   "keywords": [

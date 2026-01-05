@@ -32,7 +32,9 @@ module.exports = (db) => {
   router.get('/backup', verifyToken, verifyRole('admin'), (req, res) => {
     console.log('Backup route accessed');
     try {
-      const dbPath = path.join(__dirname, '../../data/toyshop.db');
+      // Use DATA_DIR environment variable if set (for Electron), otherwise use default path
+      const dataDir = process.env.DATA_DIR || path.join(__dirname, '../../data');
+      const dbPath = path.join(dataDir, 'toyshop.db');
       console.log('Database path:', dbPath);
       
       if (!fs.existsSync(dbPath)) {
@@ -76,7 +78,9 @@ module.exports = (db) => {
         return res.status(400).json({ error: 'No backup file provided' });
       }
 
-      const dbPath = path.join(__dirname, '../../data/toyshop.db');
+      // Use DATA_DIR environment variable if set (for Electron), otherwise use default path
+      const dataDir = process.env.DATA_DIR || path.join(__dirname, '../../data');
+      const dbPath = path.join(dataDir, 'toyshop.db');
       const backupPath = req.file.path;
 
       // Create backup of current database before restoring
@@ -96,6 +100,32 @@ module.exports = (db) => {
         backupCreated: path.basename(backupCurrentPath)
       });
     } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  // Clear database (Admin only) - reset all data except admin user
+  router.post('/clear-database', verifyToken, verifyRole('admin'), async (req, res) => {
+    try {
+      // Delete all data except admin user
+      await db.run('DELETE FROM sale_items');
+      await db.run('DELETE FROM sales');
+      await db.run('DELETE FROM returns');
+      await db.run('DELETE FROM products');
+      await db.run('DELETE FROM categories');
+      await db.run('DELETE FROM users WHERE role != "admin"');
+      
+      // Reset product quantities would be handled by deleting products
+      // Re-insert default category
+      const { v4: uuidv4 } = require('uuid');
+      await db.run(
+        'INSERT OR IGNORE INTO categories (id, name, description) VALUES (?, ?, ?)',
+        [uuidv4(), 'General', 'General toys category']
+      );
+
+      res.json({ message: 'Database cleared successfully. All sales, products, and non-admin users have been removed.' });
+    } catch (err) {
+      console.error('Clear database error:', err);
       res.status(500).json({ error: err.message });
     }
   });

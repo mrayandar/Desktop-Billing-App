@@ -90,6 +90,7 @@ export const settingsService = {
   getSetting: (key) => apiClient.get(`/settings/${key}`),
   updateSetting: (key, value) => apiClient.put(`/settings/${key}`, { value }),
   backupDatabase: () => apiClient.get('/settings/backup', { responseType: 'blob' }),
+  clearDatabase: () => apiClient.post('/settings/clear-database'),
   restoreDatabase: (file) => {
     const formData = new FormData();
     formData.append('backup', file);

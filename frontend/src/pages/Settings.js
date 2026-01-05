@@ -108,6 +108,42 @@ function Settings() {
     }
   };
 
+  const handleClearDatabase = async () => {
+    const confirmed = window.confirm(
+      '⚠️ WARNING: This will permanently delete ALL data including:\n\n' +
+      '• All products\n' +
+      '• All sales history\n' +
+      '• All categories\n' +
+      '• All non-admin users\n\n' +
+      'Only the admin account will be preserved.\n\n' +
+      'Are you absolutely sure you want to continue?'
+    );
+    
+    if (!confirmed) return;
+    
+    const doubleConfirm = window.confirm(
+      '⚠️ FINAL WARNING!\n\n' +
+      'This action CANNOT be undone.\n' +
+      'All your data will be permanently deleted.\n\n' +
+      'Click OK to DELETE ALL DATA or Cancel to abort.'
+    );
+    
+    if (!doubleConfirm) {
+      return;
+    }
+
+    try {
+      setError('');
+      await settingsService.clearDatabase();
+      setSuccess('Database cleared successfully! Refreshing...');
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    } catch (err) {
+      setError('Failed to clear database: ' + (err.response?.data?.error || err.message));
+    }
+  };
+
   const handleRestore = async (event) => {
     const file = event.target.files[0];
     if (!file) return;
@@ -393,6 +429,19 @@ function Settings() {
                 <li>Test restore functionality periodically</li>
                 <li>Keep multiple backup copies</li>
               </ul>
+            </div>
+
+            <div className="danger-zone">
+              <h3>⚠️ Danger Zone</h3>
+              <div className="danger-card">
+                <div className="danger-info">
+                  <h4>🗑️ Clear Database</h4>
+                  <p>Permanently delete all products, sales, categories, and non-admin users. This action cannot be undone.</p>
+                </div>
+                <button className="btn btn-danger" onClick={handleClearDatabase}>
+                  🗑️ Clear All Data
+                </button>
+              </div>
             </div>
           </div>
         )}
